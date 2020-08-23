@@ -21,12 +21,6 @@ namespace auth
 		public static string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 		public static bool idIsExist = false;
 		
-		public static uint itemId = 0;
-		public static string itemName = "";
-		public static uint itemQuantity = 0;
-		public static string itemDate = "";
-		public static string itemType = "";
-		
 		public ProductsForm()
 		{
 			InitializeComponent();
@@ -125,24 +119,24 @@ namespace auth
 				SqlCommand cmd = new SqlCommand("SELECT Id,Name,Quantity,Srok,Type FROM test WHERE Id = "+dataGridView1[1,dataGridView1.CurrentCell.RowIndex].Value+"",conn);
 				SqlDataReader reader = cmd.ExecuteReader();
 				while(reader.Read()){
-					itemId = Convert.ToUInt32(reader.GetValue(0));
-					itemName = reader.GetValue(1).ToString();
-					itemQuantity = Convert.ToUInt32(reader.GetValue(2));
-					itemDate = reader.GetValue(3).ToString();
-					itemType = reader.GetString(4);
+					ItemProperties.itemId = Convert.ToUInt32(reader.GetValue(0));
+					ItemProperties.itemName = reader.GetValue(1).ToString();
+					ItemProperties.itemQuantity = Convert.ToUInt32(reader.GetValue(2));
+					ItemProperties.itemDate = reader.GetValue(3).ToString();
+					ItemProperties.itemType = reader.GetString(4);
 				}
 				reader.Close();
 			}
-			if(CardProperties.IdIsExist(itemId)){
+			if(CardProperties.IdIsExist(ItemProperties.itemId)){
 				idIsExist = true;
 				ProductCard.isPictureGot = true;
-				ProductCard card = new ProductCard(itemId, itemName, itemQuantity, itemDate,itemType);
+				ProductCard card = new ProductCard(ItemProperties.itemId, ItemProperties.itemName, ItemProperties.itemQuantity, ItemProperties.itemDate,ItemProperties.itemType);
 				card.ShowDialog();
 			}
 			else{				
 				idIsExist = false;
 				ProductCard.isPictureGot = false;
-				ProductCard card = new ProductCard(itemId, itemName, itemQuantity, itemDate,itemType);
+				ProductCard card = new ProductCard(ItemProperties.itemId, ItemProperties.itemName, ItemProperties.itemQuantity, ItemProperties.itemDate,ItemProperties.itemType);
 				card.SetCardProperties();
 				card.ShowDialog();
 			}
@@ -341,8 +335,6 @@ namespace auth
 		{
 			try{
 			using(SqlConnection connection = new SqlConnection(connectionString)){
-				
-				DataGridViewComboBoxColumn column = new DataGridViewComboBoxColumn();
 				connection.Open();
 				adapter = new SqlDataAdapter(sql,connection);
 				commandBuilder = new SqlCommandBuilder(adapter);
@@ -380,12 +372,10 @@ namespace auth
 		}
 		void DeleteDataButtonClick(object sender, EventArgs e)
 		{
-//			foreach(DataGridViewRow row in dataGridView1.SelectedRows)
-//            {
-//                dataGridView1.Rows.Remove(row);
-				DataGridViewRow row = dataGridView1.SelectedRows;
+			foreach(DataGridViewRow row in dataGridView1.SelectedRows)
+            {
                 dataGridView1.Rows.Remove(row);
-//            }   
+            }   
 		}
 		public void RefreshButtonClick(object sender, EventArgs e)
 		{

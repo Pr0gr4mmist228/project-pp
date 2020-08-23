@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CardProperties.cs" />
+    <Compile Include="ItemProperties.cs" />
     <Compile Include="ProductCard.cs" />
     <Compile Include="ProductCard.Designer.cs">
       <DependentUpon>ProductCard.cs</DependentUpon>

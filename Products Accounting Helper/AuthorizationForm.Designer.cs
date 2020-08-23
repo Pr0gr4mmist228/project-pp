@@ -15,13 +15,14 @@ namespace auth
 		/// Designer variable used to keep track of non-visual components.
 		/// </summary>
 		private System.ComponentModel.IContainer components = null;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.TextBox loginBox;
+		private System.Windows.Forms.TextBox passwordBox;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.PictureBox pictureBox2;
+		private System.Windows.Forms.ErrorProvider errorProvider;
 		
 		
 		/// <summary>
@@ -45,53 +46,67 @@ namespace auth
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthorizationForm));
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.loginBox = new System.Windows.Forms.TextBox();
+			this.passwordBox = new System.Windows.Forms.TextBox();
 			this.button1 = new System.Windows.Forms.Button();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.label3 = new System.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
+			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// textBox1
+			// loginBox
 			// 
-			this.textBox1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
-			this.textBox1.Location = new System.Drawing.Point(56, 105);
-			this.textBox1.Multiline = true;
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(223, 33);
-			this.textBox1.TabIndex = 0;
-			this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.loginBox.BackColor = System.Drawing.Color.White;
+			this.loginBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.loginBox.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.loginBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
+			this.loginBox.Location = new System.Drawing.Point(56, 105);
+			this.loginBox.Multiline = true;
+			this.loginBox.Name = "loginBox";
+			this.loginBox.Size = new System.Drawing.Size(223, 33);
+			this.loginBox.TabIndex = 0;
+			this.loginBox.Text = "Введите логин";
+			this.loginBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.loginBox.WordWrap = false;
 			// 
-			// textBox2
+			// passwordBox
 			// 
-			this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
-			this.textBox2.Location = new System.Drawing.Point(56, 154);
-			this.textBox2.Multiline = true;
-			this.textBox2.Name = "textBox2";
-			this.textBox2.PasswordChar = '*';
-			this.textBox2.Size = new System.Drawing.Size(223, 33);
-			this.textBox2.TabIndex = 0;
-			this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.passwordBox.BackColor = System.Drawing.Color.White;
+			this.passwordBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.passwordBox.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.passwordBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
+			this.passwordBox.Location = new System.Drawing.Point(56, 154);
+			this.passwordBox.Multiline = true;
+			this.passwordBox.Name = "passwordBox";
+			this.passwordBox.PasswordChar = '*';
+			this.passwordBox.Size = new System.Drawing.Size(223, 33);
+			this.passwordBox.TabIndex = 0;
+			this.passwordBox.Text = "Введите пароль";
+			this.passwordBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// button1
 			// 
+			this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
 			this.button1.FlatAppearance.BorderSize = 0;
 			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button1.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button1.ForeColor = System.Drawing.Color.White;
 			this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-			this.button1.Location = new System.Drawing.Point(100, 204);
+			this.button1.Location = new System.Drawing.Point(104, 208);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(93, 77);
+			this.button1.Size = new System.Drawing.Size(84, 65);
 			this.button1.TabIndex = 1;
-			this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Text = "Войти";
+			this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+			this.button1.UseVisualStyleBackColor = false;
 			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
 			// panel1
@@ -137,6 +152,10 @@ namespace auth
 			this.pictureBox2.TabIndex = 5;
 			this.pictureBox2.TabStop = false;
 			// 
+			// errorProvider
+			// 
+			this.errorProvider.ContainerControl = this;
+			// 
 			// AuthorizationForm
 			// 
 			this.AcceptButton = this.button1;
@@ -148,8 +167,8 @@ namespace auth
 			this.Controls.Add(this.pictureBox2);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.button1);
-			this.Controls.Add(this.textBox2);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.passwordBox);
+			this.Controls.Add(this.loginBox);
 			this.Controls.Add(this.panel1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "AuthorizationForm";
@@ -159,6 +178,7 @@ namespace auth
 			this.panel1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

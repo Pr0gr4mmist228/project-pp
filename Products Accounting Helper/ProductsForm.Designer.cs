@@ -212,7 +212,7 @@ namespace auth
 			// addDataButton
 			// 
 			this.addDataButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
-			this.addDataButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.addDataButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.addDataButton.FlatAppearance.BorderSize = 0;
 			this.addDataButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.addDataButton.Font = new System.Drawing.Font("Segoe UI Emoji", 8F);
