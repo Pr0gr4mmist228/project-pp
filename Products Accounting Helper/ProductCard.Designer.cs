@@ -264,7 +264,7 @@ namespace auth
 			this.idlab.Name = "idlab";
 			this.idlab.Size = new System.Drawing.Size(143, 22);
 			this.idlab.TabIndex = 0;
-			this.idlab.Text = "Уникальный номер ( id  ):";
+			this.idlab.Text = "Уникальный номер ( id ) :";
 			// 
 			// label5
 			// 

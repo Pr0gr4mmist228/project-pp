@@ -13,6 +13,7 @@ namespace auth
 {
 	public partial class ProductCard : Form
 	{
+		ProductsForm prodForm = new ProductsForm();
 		string connectionString = ProductsForm.connectionString;
 		public static bool isPictureGot = false;
 		uint itemId;
@@ -84,7 +85,8 @@ namespace auth
 				int result = cmd.ExecuteNonQuery();
 				if(result > 0)
 					{
-					MessageBox.Show("Изменение даты успешно"); // Сделать datagridview form update
+					MessageBox.Show("Изменение даты успешно");
+					prodForm.RefreshButtonClick(sender, e);
 					}
 				else
 					MessageBox.Show("Ошибка изменения");

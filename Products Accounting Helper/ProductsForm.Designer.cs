@@ -31,6 +31,7 @@ namespace auth
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
 		private System.Windows.Forms.DataGridViewComboBoxColumn Column5;
+		public System.Windows.Forms.Button refreshDataGridViewButton;
 		
 		
 		/// <summary>
@@ -57,9 +58,11 @@ namespace auth
 		{
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductsForm));
 			this.confirmButton = new System.Windows.Forms.Button();
 			this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
 			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -77,6 +80,7 @@ namespace auth
 			this.label1 = new System.Windows.Forms.Label();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.refreshDataGridViewButton = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -134,14 +138,18 @@ namespace auth
 			// 
 			this.dataGridView1.AllowUserToAddRows = false;
 			this.dataGridView1.AllowUserToDeleteRows = false;
+			this.dataGridView1.AllowUserToResizeColumns = false;
+			this.dataGridView1.AllowUserToResizeRows = false;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.DimGray;
 			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
 			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkViolet;
 			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
 			this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-			this.dataGridView1.BackgroundColor = System.Drawing.Color.LavenderBlush;
-			this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
+			this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
 			this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.DimGray;
@@ -151,42 +159,46 @@ namespace auth
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
 			this.Column5});
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F);
-			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Honeydew;
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkViolet;
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F);
+			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Honeydew;
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkViolet;
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
 			this.dataGridView1.EnableHeadersVisualStyles = false;
 			this.dataGridView1.GridColor = System.Drawing.Color.White;
 			this.dataGridView1.Location = new System.Drawing.Point(0, 26);
 			this.dataGridView1.Name = "dataGridView1";
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F);
-			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Info;
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkViolet;
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
 			dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F);
-			dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Info;
 			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkViolet;
-			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+			this.dataGridView1.RowHeadersWidth = 39;
+			this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+			dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F);
+			dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkViolet;
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
 			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridView1.Size = new System.Drawing.Size(643, 142);
+			this.dataGridView1.Size = new System.Drawing.Size(656, 142);
 			this.dataGridView1.TabIndex = 0;
 			// 
 			// Column5
 			// 
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Column5.DefaultCellStyle = dataGridViewCellStyle3;
 			this.Column5.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
 			this.Column5.HeaderText = "ButtonColumn";
 			this.Column5.Items.AddRange(new object[] {
@@ -194,20 +206,25 @@ namespace auth
 			"aSADd",
 			"Фрукты"});
 			this.Column5.Name = "Column5";
+			this.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
 			this.Column5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			// 
 			// addDataButton
 			// 
 			this.addDataButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
+			this.addDataButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.addDataButton.FlatAppearance.BorderSize = 0;
 			this.addDataButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.addDataButton.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.addDataButton.Font = new System.Drawing.Font("Segoe UI Emoji", 8F);
 			this.addDataButton.ForeColor = System.Drawing.Color.White;
-			this.addDataButton.Location = new System.Drawing.Point(0, 188);
+			this.addDataButton.Image = ((System.Drawing.Image)(resources.GetObject("addDataButton.Image")));
+			this.addDataButton.Location = new System.Drawing.Point(0, 184);
 			this.addDataButton.Name = "addDataButton";
-			this.addDataButton.Size = new System.Drawing.Size(131, 41);
+			this.addDataButton.Size = new System.Drawing.Size(131, 45);
 			this.addDataButton.TabIndex = 8;
 			this.addDataButton.Text = "Добавить данные";
+			this.addDataButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.addDataButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
 			this.addDataButton.UseVisualStyleBackColor = false;
 			this.addDataButton.Click += new System.EventHandler(this.AddDataButtonClick);
 			// 
@@ -218,11 +235,13 @@ namespace auth
 			this.deleteDataButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.deleteDataButton.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.deleteDataButton.ForeColor = System.Drawing.Color.White;
-			this.deleteDataButton.Location = new System.Drawing.Point(145, 188);
+			this.deleteDataButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteDataButton.Image")));
+			this.deleteDataButton.Location = new System.Drawing.Point(138, 184);
 			this.deleteDataButton.Name = "deleteDataButton";
-			this.deleteDataButton.Size = new System.Drawing.Size(131, 41);
+			this.deleteDataButton.Size = new System.Drawing.Size(131, 45);
 			this.deleteDataButton.TabIndex = 2;
 			this.deleteDataButton.Text = "Удалить данные";
+			this.deleteDataButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
 			this.deleteDataButton.UseVisualStyleBackColor = false;
 			this.deleteDataButton.Click += new System.EventHandler(this.DeleteDataButtonClick);
 			// 
@@ -231,13 +250,15 @@ namespace auth
 			this.refreshButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
 			this.refreshButton.FlatAppearance.BorderSize = 0;
 			this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.refreshButton.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.refreshButton.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F);
 			this.refreshButton.ForeColor = System.Drawing.Color.White;
-			this.refreshButton.Location = new System.Drawing.Point(440, 188);
+			this.refreshButton.Image = ((System.Drawing.Image)(resources.GetObject("refreshButton.Image")));
+			this.refreshButton.Location = new System.Drawing.Point(416, 184);
 			this.refreshButton.Name = "refreshButton";
-			this.refreshButton.Size = new System.Drawing.Size(71, 41);
+			this.refreshButton.Size = new System.Drawing.Size(88, 45);
 			this.refreshButton.TabIndex = 4;
 			this.refreshButton.Text = "Обновить данные";
+			this.refreshButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
 			this.refreshButton.UseVisualStyleBackColor = false;
 			this.refreshButton.Click += new System.EventHandler(this.RefreshButtonClick);
 			// 
@@ -278,11 +299,13 @@ namespace auth
 			this.checkbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.checkbutton.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.checkbutton.ForeColor = System.Drawing.Color.White;
-			this.checkbutton.Location = new System.Drawing.Point(520, 192);
+			this.checkbutton.Image = ((System.Drawing.Image)(resources.GetObject("checkbutton.Image")));
+			this.checkbutton.Location = new System.Drawing.Point(512, 184);
 			this.checkbutton.Name = "checkbutton";
-			this.checkbutton.Size = new System.Drawing.Size(128, 41);
+			this.checkbutton.Size = new System.Drawing.Size(144, 45);
 			this.checkbutton.TabIndex = 10;
 			this.checkbutton.Text = "Проверить состояние продуктов";
+			this.checkbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
 			this.checkbutton.UseVisualStyleBackColor = false;
 			this.checkbutton.Click += new System.EventHandler(this.CheckbuttonClick);
 			// 
@@ -293,11 +316,13 @@ namespace auth
 			this.changeDataButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.changeDataButton.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.changeDataButton.ForeColor = System.Drawing.Color.White;
-			this.changeDataButton.Location = new System.Drawing.Point(292, 188);
+			this.changeDataButton.Image = ((System.Drawing.Image)(resources.GetObject("changeDataButton.Image")));
+			this.changeDataButton.Location = new System.Drawing.Point(277, 184);
 			this.changeDataButton.Name = "changeDataButton";
-			this.changeDataButton.Size = new System.Drawing.Size(131, 41);
+			this.changeDataButton.Size = new System.Drawing.Size(131, 45);
 			this.changeDataButton.TabIndex = 9;
 			this.changeDataButton.Text = "Изменить данные";
+			this.changeDataButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
 			this.changeDataButton.UseVisualStyleBackColor = false;
 			this.changeDataButton.Click += new System.EventHandler(this.ChangeDataButtonClick);
 			// 
@@ -351,6 +376,23 @@ namespace auth
 			this.настройкиToolStripMenuItem.Text = "Настройки";
 			this.настройкиToolStripMenuItem.Click += new System.EventHandler(this.НастройкиToolStripMenuItemClick);
 			// 
+			// refreshDataGridViewButton
+			// 
+			this.refreshDataGridViewButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
+			this.refreshDataGridViewButton.FlatAppearance.BorderSize = 0;
+			this.refreshDataGridViewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.refreshDataGridViewButton.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.refreshDataGridViewButton.ForeColor = System.Drawing.Color.White;
+			this.refreshDataGridViewButton.Image = ((System.Drawing.Image)(resources.GetObject("refreshDataGridViewButton.Image")));
+			this.refreshDataGridViewButton.Location = new System.Drawing.Point(672, 28);
+			this.refreshDataGridViewButton.Name = "refreshDataGridViewButton";
+			this.refreshDataGridViewButton.Size = new System.Drawing.Size(80, 45);
+			this.refreshDataGridViewButton.TabIndex = 4;
+			this.refreshDataGridViewButton.Text = "Обновить данные";
+			this.refreshDataGridViewButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+			this.refreshDataGridViewButton.UseVisualStyleBackColor = false;
+			this.refreshDataGridViewButton.Click += new System.EventHandler(this.RefreshButtonClick);
+			// 
 			// ProductsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -359,6 +401,7 @@ namespace auth
 			this.ClientSize = new System.Drawing.Size(766, 310);
 			this.Controls.Add(this.menuStrip1);
 			this.Controls.Add(this.splitContainer1);
+			this.Controls.Add(this.refreshDataGridViewButton);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "ProductsForm";

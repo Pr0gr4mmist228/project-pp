@@ -351,18 +351,17 @@ namespace auth
 				adapter.InsertCommand.Parameters.Add(new SqlParameter("@name", SqlDbType.NChar,20,"Name"));
 				adapter.InsertCommand.Parameters.Add(new SqlParameter("@quantity",SqlDbType.Int,0,"Quantity"));
 				adapter.InsertCommand.Parameters.Add(new SqlParameter("@srok", SqlDbType.NChar,0,"Srok"));
-				
 				SqlParameter param = adapter.InsertCommand.Parameters.AddWithValue("@type",dataGridView1[0, dataGridView1.Rows.Count - 1].Value);
 				
-				int index;
-				SqlCommand cmd = new SqlCommand();
-				for (int i = 0; i < dataGridView1.Rows.Count; i++) {
-				index = Convert.ToInt32(dataGridView1[1, i].Value);
-				cmd = new SqlCommand("UPDATE test SET Type = @type WHERE id = "+ index,connection);
-				SqlParameter parameter = new SqlParameter("@type",dataGridView1[0,i].Value);
-				cmd.Parameters.Add(parameter);
-				cmd.ExecuteNonQuery();
-				}
+//				int index;
+//				SqlCommand cmd = new SqlCommand();
+//				for (int i = 0; i < dataGridView1.Rows.Count; i++) {
+//				index = Convert.ToInt32(dataGridView1[1, i].Value);
+//				cmd = new SqlCommand("UPDATE test SET Type = @type WHERE id = "+ index,connection);
+//				SqlParameter parameter = new SqlParameter("@type",dataGridView1[0,i].Value);
+//				cmd.Parameters.Add(parameter);
+//				cmd.ExecuteNonQuery();
+//				}
 
 				SqlParameter idParametr = adapter.InsertCommand.Parameters.Add("@Id",SqlDbType.Int,0, "ID");
 				idParametr.Direction = ParameterDirection.Output;
@@ -381,14 +380,17 @@ namespace auth
 		}
 		void DeleteDataButtonClick(object sender, EventArgs e)
 		{
-			foreach(DataGridViewRow row in dataGridView1.SelectedRows)
-            {
+//			foreach(DataGridViewRow row in dataGridView1.SelectedRows)
+//            {
+//                dataGridView1.Rows.Remove(row);
+				DataGridViewRow row = dataGridView1.SelectedRows;
                 dataGridView1.Rows.Remove(row);
-            }   
+//            }   
 		}
-		void RefreshButtonClick(object sender, EventArgs e)
+		public void RefreshButtonClick(object sender, EventArgs e)
 		{
 			dataGridView1.DataSource = ds.Tables[0];
+			dataGridView1.Update();
 		}
 }
 }
