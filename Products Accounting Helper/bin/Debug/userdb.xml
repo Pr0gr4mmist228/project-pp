@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <ID>1</ID>
+    <Name>11             </Name>
+    <Quantity>11        </Quantity>
+    <Srok>2001-04-11T00:00:00+04:00</Srok>
+    <Type>Овощи               </Type>
+  </Table>
+  <Table>
+    <ID>2</ID>
+    <Name>121            </Name>
+    <Quantity>12        </Quantity>
+    <Srok>2001-04-11T00:00:00+04:00</Srok>
+    <Type>Фрукты              </Type>
+  </Table>
+  <Table>
+    <ID>3</ID>
+    <Name>5              </Name>
+    <Quantity>12        </Quantity>
+    <Srok>2005-05-11T00:00:00+04:00</Srok>
+    <Type>Овощи               </Type>
+  </Table>
+</NewDataSet>

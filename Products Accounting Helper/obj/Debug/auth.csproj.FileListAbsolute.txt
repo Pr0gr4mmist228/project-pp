@@ -1,0 +1,29 @@
+C:\Users\artem\Documents\SharpDevelop Projects\auth\auth\obj\Debug\auth.csprojResolveAssemblyReference.cache
+C:\Users\artem\Documents\SharpDevelop Projects\auth\auth\obj\Debug\auth.MainForm.resources
+C:\Users\artem\Documents\SharpDevelop Projects\auth\auth\obj\Debug\auth.csproj.GenerateResource.Cache
+C:\Users\artem\Documents\SharpDevelop Projects\auth\auth\bin\Debug\auth.exe.config
+C:\Users\artem\Documents\SharpDevelop Projects\auth\auth\bin\Debug\auth.exe
+C:\Users\artem\Documents\SharpDevelop Projects\auth\auth\bin\Debug\auth.pdb
+C:\Users\artem\Documents\SharpDevelop Projects\auth\auth\obj\Debug\auth.exe
+C:\Users\artem\Documents\SharpDevelop Projects\auth\auth\obj\Debug\auth.pdb
+C:\Users\artem\Documents\SharpDevelop Projects\auth\auth\obj\Debug\auth.Form1.resources
+C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05\auth\bin\Debug\auth.exe.config
+C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05\auth\bin\Debug\auth.exe
+C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05\auth\bin\Debug\auth.pdb
+C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05\auth\obj\Debug\auth.csprojResolveAssemblyReference.cache
+C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05\auth\obj\Debug\auth.Form1.resources
+C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05\auth\obj\Debug\auth.MainForm.resources
+C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05\auth\obj\Debug\auth.csproj.GenerateResource.Cache
+C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05\auth\obj\Debug\auth.exe
+C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05\auth\obj\Debug\auth.pdb
+C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05 v2\auth\bin\Debug\auth.exe.config
+C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05 v2\auth\bin\Debug\auth.exe
+C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05 v2\auth\bin\Debug\auth.pdb
+C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05 v2\auth\obj\Debug\auth.csprojResolveAssemblyReference.cache
+C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05 v2\auth\obj\Debug\auth.MainForm.resources
+C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05 v2\auth\obj\Debug\auth.csproj.GenerateResource.Cache
+C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05 v2\auth\obj\Debug\auth.exe
+C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05 v2\auth\obj\Debug\auth.pdb
+C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05 v2\auth\obj\Debug\auth.SettingsForm.resources
+C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05 v2\auth\obj\Debug\auth.ProductCard.resources
+C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05 v2\auth\obj\Debug\auth.ProductsForm.resources
