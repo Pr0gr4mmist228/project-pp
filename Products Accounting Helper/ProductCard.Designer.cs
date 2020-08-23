@@ -135,8 +135,11 @@ namespace auth
 			// dateTimePicker
 			// 
 			this.dateTimePicker.CalendarFont = new System.Drawing.Font("Segoe UI Emoji", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dateTimePicker.CalendarForeColor = System.Drawing.Color.White;
+			this.dateTimePicker.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
 			this.dateTimePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
+			this.dateTimePicker.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
+			this.dateTimePicker.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
+			this.dateTimePicker.CalendarTrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
 			this.dateTimePicker.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dateTimePicker.Location = new System.Drawing.Point(424, 224);
 			this.dateTimePicker.Name = "dateTimePicker";
@@ -157,9 +160,9 @@ namespace auth
 			this.saveDateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
 			this.saveDateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.saveDateButton.ForeColor = System.Drawing.Color.White;
-			this.saveDateButton.Location = new System.Drawing.Point(424, 256);
+			this.saveDateButton.Location = new System.Drawing.Point(472, 256);
 			this.saveDateButton.Name = "saveDateButton";
-			this.saveDateButton.Size = new System.Drawing.Size(168, 32);
+			this.saveDateButton.Size = new System.Drawing.Size(118, 30);
 			this.saveDateButton.TabIndex = 3;
 			this.saveDateButton.Text = "Сохранить дату";
 			this.saveDateButton.UseVisualStyleBackColor = false;
@@ -261,7 +264,7 @@ namespace auth
 			this.idlab.Name = "idlab";
 			this.idlab.Size = new System.Drawing.Size(143, 22);
 			this.idlab.TabIndex = 0;
-			this.idlab.Text = "Уникальный номер (id):";
+			this.idlab.Text = "Уникальный номер ( id  ):";
 			// 
 			// label5
 			// 

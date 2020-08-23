@@ -9,3 +9,14 @@ C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05 v2\Prod
 C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05 v2\Products Accounting Helper\bin\Debug\auth.exe
 C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05 v2\Products Accounting Helper\bin\Debug\auth.pdb
 C:\Users\artem\Documents\SharpDevelop Projects\проект по пп 05 v2\Products Accounting Helper\obj\Debug\auth.pdb
+C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\bin\Debug\auth.exe.config
+C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\bin\Debug\auth.exe
+C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\bin\Debug\auth.pdb
+C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\Products Accounting Helper.csprojResolveAssemblyReference.cache
+C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\auth.ProductCard.resources
+C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\auth.ProductsForm.resources
+C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\auth.AuthorizationForm.resources
+C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\auth.SettingsForm.resources
+C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\Products Accounting Helper.csproj.GenerateResource.Cache
+C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\auth.exe
+C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\auth.pdb
