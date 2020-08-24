@@ -13,6 +13,7 @@ C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\bin\Debug\
 C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\bin\Debug\auth.exe
 C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\bin\Debug\auth.pdb
 C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\Products Accounting Helper.csprojResolveAssemblyReference.cache
+C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\auth.ImageTypeChoose.resources
 C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\auth.ProductCard.resources
 C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\auth.ProductsForm.resources
 C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\auth.AuthorizationForm.resources

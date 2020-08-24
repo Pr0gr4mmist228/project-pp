@@ -28,7 +28,7 @@ namespace auth
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
 		public System.Windows.Forms.Button checkbutton;
-		private System.Windows.Forms.MenuStrip menuStrip1;
+		private System.Windows.Forms.MenuStrip menuStrip;
 		private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
 		private System.Windows.Forms.DataGridViewComboBoxColumn Column5;
 		public System.Windows.Forms.Button refreshDataGridViewButton;
@@ -78,7 +78,7 @@ namespace auth
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
-			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.menuStrip = new System.Windows.Forms.MenuStrip();
 			this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.refreshDataGridViewButton = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -87,7 +87,7 @@ namespace auth
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
-			this.menuStrip1.SuspendLayout();
+			this.menuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// confirmButton
@@ -114,7 +114,6 @@ namespace auth
 			this.maskedTextBox1.Size = new System.Drawing.Size(120, 20);
 			this.maskedTextBox1.TabIndex = 6;
 			this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
-			this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.MaskedTextBox1MaskInputRejected);
 			// 
 			// numericUpDown1
 			// 
@@ -359,15 +358,15 @@ namespace auth
 			this.label1.Text = "Наименование товара";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
-			// menuStrip1
+			// menuStrip
 			// 
-			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 			this.настройкиToolStripMenuItem});
-			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(766, 24);
-			this.menuStrip1.TabIndex = 8;
-			this.menuStrip1.Text = "menuStrip1";
+			this.menuStrip.Location = new System.Drawing.Point(0, 0);
+			this.menuStrip.Name = "menuStrip";
+			this.menuStrip.Size = new System.Drawing.Size(766, 24);
+			this.menuStrip.TabIndex = 8;
+			this.menuStrip.Text = "menuStrip1";
 			// 
 			// настройкиToolStripMenuItem
 			// 
@@ -399,11 +398,11 @@ namespace auth
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Gainsboro;
 			this.ClientSize = new System.Drawing.Size(766, 310);
-			this.Controls.Add(this.menuStrip1);
+			this.Controls.Add(this.menuStrip);
 			this.Controls.Add(this.splitContainer1);
 			this.Controls.Add(this.refreshDataGridViewButton);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-			this.MainMenuStrip = this.menuStrip1;
+			this.MainMenuStrip = this.menuStrip;
 			this.Name = "ProductsForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Управление товарами";
@@ -415,8 +414,8 @@ namespace auth
 			this.splitContainer1.Panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
-			this.menuStrip1.ResumeLayout(false);
-			this.menuStrip1.PerformLayout();
+			this.menuStrip.ResumeLayout(false);
+			this.menuStrip.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

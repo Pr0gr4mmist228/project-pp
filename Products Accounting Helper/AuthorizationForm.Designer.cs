@@ -17,7 +17,7 @@ namespace auth
 		private System.ComponentModel.IContainer components = null;
 		private System.Windows.Forms.TextBox loginBox;
 		private System.Windows.Forms.TextBox passwordBox;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button logInButton;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.PictureBox pictureBox1;
@@ -50,7 +50,7 @@ namespace auth
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthorizationForm));
 			this.loginBox = new System.Windows.Forms.TextBox();
 			this.passwordBox = new System.Windows.Forms.TextBox();
-			this.button1 = new System.Windows.Forms.Button();
+			this.logInButton = new System.Windows.Forms.Button();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.label3 = new System.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -91,23 +91,24 @@ namespace auth
 			this.passwordBox.TabIndex = 0;
 			this.passwordBox.Text = "Введите пароль";
 			this.passwordBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.passwordBox.WordWrap = false;
 			// 
-			// button1
+			// logInButton
 			// 
-			this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
-			this.button1.FlatAppearance.BorderSize = 0;
-			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button1.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button1.ForeColor = System.Drawing.Color.White;
-			this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-			this.button1.Location = new System.Drawing.Point(104, 208);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(84, 65);
-			this.button1.TabIndex = 1;
-			this.button1.Text = "Войти";
-			this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-			this.button1.UseVisualStyleBackColor = false;
-			this.button1.Click += new System.EventHandler(this.Button1Click);
+			this.logInButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
+			this.logInButton.FlatAppearance.BorderSize = 0;
+			this.logInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.logInButton.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.logInButton.ForeColor = System.Drawing.Color.White;
+			this.logInButton.Image = ((System.Drawing.Image)(resources.GetObject("logInButton.Image")));
+			this.logInButton.Location = new System.Drawing.Point(104, 208);
+			this.logInButton.Name = "logInButton";
+			this.logInButton.Size = new System.Drawing.Size(84, 65);
+			this.logInButton.TabIndex = 1;
+			this.logInButton.Text = "Войти";
+			this.logInButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+			this.logInButton.UseVisualStyleBackColor = false;
+			this.logInButton.Click += new System.EventHandler(this.Button1Click);
 			// 
 			// panel1
 			// 
@@ -135,9 +136,9 @@ namespace auth
 			// pictureBox1
 			// 
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(2, 97);
+			this.pictureBox1.Location = new System.Drawing.Point(2, 100);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(48, 45);
+			this.pictureBox1.Size = new System.Drawing.Size(46, 40);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox1.TabIndex = 4;
 			this.pictureBox1.TabStop = false;
@@ -145,9 +146,9 @@ namespace auth
 			// pictureBox2
 			// 
 			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-			this.pictureBox2.Location = new System.Drawing.Point(2, 148);
+			this.pictureBox2.Location = new System.Drawing.Point(2, 150);
 			this.pictureBox2.Name = "pictureBox2";
-			this.pictureBox2.Size = new System.Drawing.Size(48, 45);
+			this.pictureBox2.Size = new System.Drawing.Size(46, 39);
 			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox2.TabIndex = 5;
 			this.pictureBox2.TabStop = false;
@@ -158,15 +159,16 @@ namespace auth
 			// 
 			// AuthorizationForm
 			// 
-			this.AcceptButton = this.button1;
+			this.AcceptButton = this.logInButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.BackColor = System.Drawing.Color.Gainsboro;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.ClientSize = new System.Drawing.Size(292, 285);
 			this.Controls.Add(this.pictureBox2);
 			this.Controls.Add(this.pictureBox1);
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.logInButton);
 			this.Controls.Add(this.passwordBox);
 			this.Controls.Add(this.loginBox);
 			this.Controls.Add(this.panel1);
@@ -174,6 +176,7 @@ namespace auth
 			this.Name = "AuthorizationForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Авторизация";
+			this.TopMost = true;
 			this.Load += new System.EventHandler(this.AuthorizationFormLoad);
 			this.panel1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

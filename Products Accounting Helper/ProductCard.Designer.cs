@@ -12,7 +12,6 @@ namespace auth
 		private System.Windows.Forms.Label quantityLabel;
 		private System.Windows.Forms.Label dateLabel;
 		private System.Windows.Forms.PictureBox itemPicture;
-		private System.Windows.Forms.OpenFileDialog openFileDialog;
 		private System.Windows.Forms.ToolTip pictureAddTip;
 		private System.Windows.Forms.DateTimePicker dateTimePicker;
 		private System.Windows.Forms.Label typeLabel;
@@ -60,7 +59,6 @@ namespace auth
 			this.quantityLabel = new System.Windows.Forms.Label();
 			this.dateLabel = new System.Windows.Forms.Label();
 			this.itemPicture = new System.Windows.Forms.PictureBox();
-			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.pictureAddTip = new System.Windows.Forms.ToolTip(this.components);
 			this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
 			this.typeLabel = new System.Windows.Forms.Label();
@@ -124,9 +122,9 @@ namespace auth
 			// 
 			this.itemPicture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("itemPicture.BackgroundImage")));
 			this.itemPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.itemPicture.Location = new System.Drawing.Point(392, 16);
+			this.itemPicture.Location = new System.Drawing.Point(378, 10);
 			this.itemPicture.Name = "itemPicture";
-			this.itemPicture.Size = new System.Drawing.Size(192, 144);
+			this.itemPicture.Size = new System.Drawing.Size(220, 155);
 			this.itemPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.itemPicture.TabIndex = 1;
 			this.itemPicture.TabStop = false;
@@ -256,6 +254,7 @@ namespace auth
 			this.confirmButton.TabIndex = 0;
 			this.confirmButton.Text = "OK";
 			this.confirmButton.UseVisualStyleBackColor = false;
+			this.confirmButton.Click += new System.EventHandler(this.ConfirmButtonClick);
 			// 
 			// idlab
 			// 
@@ -314,7 +313,7 @@ namespace auth
 			this.collapseButton.TabIndex = 15;
 			this.collapseButton.Text = "Изменить данные";
 			this.collapseButton.UseVisualStyleBackColor = false;
-			this.collapseButton.Click += new System.EventHandler(this.Button1Click);
+			this.collapseButton.Click += new System.EventHandler(this.collapseButtonClick);
 			// 
 			// ProductCard
 			// 
@@ -348,7 +347,6 @@ namespace auth
 			this.Name = "ProductCard";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Карточка продукта";
-			this.Load += new System.EventHandler(this.ProductCardLoad);
 			((System.ComponentModel.ISupportInitialize)(this.itemPicture)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.quantityUpdown)).EndInit();

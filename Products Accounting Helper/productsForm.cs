@@ -12,11 +12,12 @@ namespace auth
 	public partial class ProductsForm : Form
 	{	
 		bool status = false;
+		
 		SettingsForm settings = new SettingsForm();
 		DataSet ds;
 		SqlDataAdapter adapter;
 		SqlCommandBuilder commandBuilder;
-		string sql = "SELECT * FROM test";
+		
 		public static int optionId;
 		public static string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 		public static bool idIsExist = false;
@@ -38,7 +39,7 @@ namespace auth
 			using(SqlConnection connection = new SqlConnection(connectionString))
 			 {
 				connection.Open();
-				adapter = new SqlDataAdapter(sql,connection);
+				adapter = new SqlDataAdapter("SELECT * FROM test",connection);
 				ds = new DataSet();
 				adapter.Fill(ds);
 				
@@ -58,7 +59,7 @@ namespace auth
 			settings.onlySaveOptionCheckedChanged(sender, e);
 			settings.ManualWithButtonsOptionCheckedChanged(sender,e);
 		}
-		void Checkdate()
+		void CheckDate()
 		{
 			bool isContainsBadProducts = false;
 			DateTime CurrentData = DateTime.Now;
@@ -70,13 +71,13 @@ namespace auth
 			for (int i = 0; i < dataGridView1.Rows.Count; i++) {
 				datagridDate = dataGridView1[4,i].Value.ToString().Split('.');
 				datagridDate[2] = datagridDate[2].Substring(0,4);
-				if(int.Parse(datagridDate[0]) - currentDay <= 0 && int.Parse(datagridDate[1]) - currentMonth <= 0 && int.Parse(datagridDate[2])- currentYear <= 0){
+				if((int.Parse(datagridDate[0]) - currentDay <= 0 || int.Parse(datagridDate[1]) - currentMonth < 0) && int.Parse(datagridDate[2])- currentYear <= 0){
 					string currentID = dataGridView1[1,i].Value.ToString();
 					MessageBox.Show("У товара с ID " + currentID + " истек срок годности","Внимание!",MessageBoxButtons.OK,MessageBoxIcon.Error);
 					isContainsBadProducts = true;
 				}
 				else if(!isContainsBadProducts){
-					MessageBox.Show("Все в порядке","Порядок",MessageBoxButtons.OK,MessageBoxIcon.Information);
+					MessageBox.Show("Все в порядке","Порядок",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
 				}
 			}
 //			int est = 0;
@@ -110,7 +111,7 @@ namespace auth
 //			string itemName = dataGridView1[2,dataGridView1.CurrentCell.RowIndex].Value.ToString();
 //			uint itemQuantity = Convert.ToUInt32(dataGridView1[3,dataGridView1.CurrentCell.RowIndex].Value);   МЕТОД БЕЗ SQL
 //			string itemDate = dataGridView1[4,dataGridView1.CurrentCell.RowIndex].Value.ToString().Substring(0,10);
-			if(dataGridView1.CurrentCell is DataGridViewButtonCell){
+			if(dataGridView1.CurrentCell is DataGridViewComboBoxCell){
 				
 			}
 			else{
@@ -127,21 +128,11 @@ namespace auth
 				}
 				reader.Close();
 			}
-			if(CardProperties.IdIsExist(ItemProperties.itemId)){
-				idIsExist = true;
-				ProductCard.isPictureGot = true;
+				idIsExist = CardProperties.IdIsExist(ItemProperties.itemId);
 				ProductCard card = new ProductCard(ItemProperties.itemId, ItemProperties.itemName, ItemProperties.itemQuantity, ItemProperties.itemDate,ItemProperties.itemType);
 				card.ShowDialog();
 			}
-			else{				
-				idIsExist = false;
-				ProductCard.isPictureGot = false;
-				ProductCard card = new ProductCard(ItemProperties.itemId, ItemProperties.itemName, ItemProperties.itemQuantity, ItemProperties.itemDate,ItemProperties.itemType);
-				card.SetCardProperties();
-				card.ShowDialog();
 			}
-		}
-	}
 
 		private DataTable GetEmployeesList()
 		{
@@ -243,7 +234,6 @@ namespace auth
 		public void Checksrokgod()
 		{
 			try{
-				
 				string srok = maskedTextBox1.Text;
                 int k=srok.IndexOf('.');
                 string srokden = srok.Substring(0, k);
@@ -321,11 +311,7 @@ namespace auth
 		}
 		void CheckbuttonClick(object sender, EventArgs e)
 		{
-		Checkdate();
-		}
-		void MaskedTextBox1MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-		{
-	
+		CheckDate();
 		}
 		void НастройкиToolStripMenuItemClick(object sender, EventArgs e)
 		{
@@ -336,7 +322,7 @@ namespace auth
 			try{
 			using(SqlConnection connection = new SqlConnection(connectionString)){
 				connection.Open();
-				adapter = new SqlDataAdapter(sql,connection);
+				adapter = new SqlDataAdapter("SELECT * FROM test",connection);
 				commandBuilder = new SqlCommandBuilder(adapter);
 				adapter.InsertCommand = new SqlCommand("INSERT INTO test (Name, Quantity, Srok,Type) VALUES (@name, @quantity, @srok, @type) SET @Id=SCOPE_IDENTITY()", connection);
 				adapter.InsertCommand.CommandType = CommandType.Text;
@@ -379,8 +365,13 @@ namespace auth
 		}
 		public void RefreshButtonClick(object sender, EventArgs e)
 		{
-			dataGridView1.DataSource = ds.Tables[0];
-			dataGridView1.Update();
+			using(SqlConnection connection = new SqlConnection(connectionString)){
+				connection.Open();
+				SqlDataAdapter adap = new SqlDataAdapter("SELECT * FROM test", connection);
+				DataSet dataSet = new DataSet();
+				adap.Fill(dataSet);
+				dataGridView1.DataSource = dataSet.Tables[0];
+			}
 		}
 }
 }

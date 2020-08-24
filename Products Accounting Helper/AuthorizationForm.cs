@@ -37,7 +37,7 @@ namespace auth
 					con.Close();
 				}
 			} else
-				errorProvider.SetError(button1, "Одно из полей пустое");
+				errorProvider.SetError(logInButton, "Одно из полей пустое");
 		}
 		void AuthorizationFormLoad(object sender, EventArgs e)
 		{
@@ -48,7 +48,8 @@ namespace auth
 		}
 
 		void loginBox_LostFocus(object sender, EventArgs e)
-		{	if(!passwordBox.Focused){
+		{	
+			if(!passwordBox.Focused){
 				if (passwordBox.Text == "") {
 					passwordBox.Text = "Введите пароль";
 					passwordBox.PasswordChar = '\0';

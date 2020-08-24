@@ -43,13 +43,7 @@ namespace auth
 			addDataButton.Text = "Сохранить изменения";
 			changeDataButton.Text = "Добавить данные";
 			refreshButton.Text = "Отменить изменения";
-			MessageBox.Show("Изменение успешно","Успех!");
 		}
-		}
-
-		public void addDataButton_Click(object sender, EventArgs e)
-		{
-			
 		}
 
 		public void AutoSaveOptionCheckedChanged(object sender, EventArgs e)
@@ -62,7 +56,6 @@ namespace auth
 			ProductsForm.optionId = 3;
 			addDataButton.Text = "Добавить данные";
 			refreshButton.Text = "Обновить данные";
-			MessageBox.Show("Изменение успешно","Успех!");
 			}
 		}
 		void SettingsFormLoad(object sender, EventArgs e)

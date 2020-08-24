@@ -58,6 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CardProperties.cs" />
+    <Compile Include="ImageTypeChoose.cs" />
+    <Compile Include="ImageTypeChoose.Designer.cs">
+      <DependentUpon>ImageTypeChoose.cs</DependentUpon>
+    </Compile>
     <Compile Include="ItemProperties.cs" />
     <Compile Include="ProductCard.cs" />
     <Compile Include="ProductCard.Designer.cs">
@@ -82,6 +86,9 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ImageTypeChoose.resx">
+      <DependentUpon>ImageTypeChoose.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductCard.resx">
       <DependentUpon>ProductCard.cs</DependentUpon>
     </EmbeddedResource>

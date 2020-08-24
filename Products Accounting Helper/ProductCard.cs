@@ -20,12 +20,14 @@ namespace auth
 		
 		bool isCollapsed = false;
 		
-		public ProductCard(uint itemId, string itemName, uint itemQuantity, string itemDate, string type)
+		public ProductCard(uint itemId, string itemName, uint itemQuantity, string itemDate,string type)
 		{
 			InitializeComponent();
 			
-			this.itemId = itemId;
+			ImageTypeChoose.picture = itemPicture;
+			ImageTypeChoose.itemId = itemId;
 			
+			this.itemId = itemId;
 			Height = 222;
 			
 			itemPicture.DoubleClick += itemPicture_DoubleClick;
@@ -44,12 +46,8 @@ namespace auth
 			
 			if (ProductsForm.idIsExist) {
 				itemPicture.ImageLocation = CardProperties.GetImageLocation(itemId);
+				isPictureGot = true;
 			}
-		}
-
-		public void SetCardProperties()
-		{
-			
 		}
 		
 		void itemPicture_MouseHover(object sender, EventArgs e)
@@ -62,21 +60,18 @@ namespace auth
 		
 		void itemPicture_DoubleClick(object sender, EventArgs e)
 		{
-			openFileDialog.ShowDialog();
-			itemPicture.ImageLocation = openFileDialog.FileName;
-			string imageLocation = itemPicture.ImageLocation;
-			if (!ProductsForm.idIsExist) {
-				CardProperties.SetImageLocation(itemId, imageLocation);
-			} else {
-				CardProperties.UpdateImageLocation(itemId, imageLocation);
-			}
-			isPictureGot = true;
-			
+			ImageTypeChoose imageDialog = new ImageTypeChoose();
+			imageDialog.ShowDialog();
 		}
-		void ProductCardLoad(object sender, EventArgs e)
-		{
-	
+		public static void SetFileLocation(string fileLocation, uint itemId){
+				if (!ProductsForm.idIsExist) {
+					CardProperties.SetImageLocation(itemId, fileLocation);
+				} else {
+					CardProperties.UpdateImageLocation(itemId, fileLocation);
+				}
+				isPictureGot = true;
 		}
+		
 		void SaveDateButtonClick(object sender, EventArgs e)
 		{
 			using (SqlConnection connection = new SqlConnection(ProductsForm.connectionString)) {
@@ -85,14 +80,13 @@ namespace auth
 				int result = cmd.ExecuteNonQuery();
 				if(result > 0)
 					{
-					MessageBox.Show("Изменение даты успешно");
+					MessageBox.Show("Успешное изменение даты","Успех!",MessageBoxButtons.OK,MessageBoxIcon.Information);
 					prodForm.RefreshButtonClick(sender, e);
-					}
-				else
-					MessageBox.Show("Ошибка изменения");
+					} else
+					MessageBox.Show("Изменение не удалось", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
-		void Button1Click(object sender, EventArgs e)
+		void collapseButtonClick(object sender, EventArgs e)
 		{
 			if(!isCollapsed){
 				Height = 341;	
@@ -103,6 +97,26 @@ namespace auth
 				isCollapsed = false;
 				collapseButton.Text = "Изменить данные";
 			}
+		}
+		void ConfirmButtonClick(object sender, EventArgs e)
+		{
+			try{
+			using(SqlConnection connection = new SqlConnection(connectionString)){
+				connection.Open();
+				SqlCommand command = new SqlCommand("UPDATE test SET Name=@name,Quantity=@quantity,Srok=@srok WHERE id =" + itemId,connection);
+				command.Parameters.AddWithValue("@name",nameTextBox.Text);
+				command.Parameters.AddWithValue("@quantity", quantityUpdown.Value);
+				command.Parameters.AddWithValue("@srok", dateMaskedTextBox.Text);
+				if(command.ExecuteNonQuery() > 0){
+					MessageBox.Show("Успешное изменение данных","Успех!",MessageBoxButtons.OK,MessageBoxIcon.Information);
+				}
+				else
+					MessageBox.Show("Изменение не удалось","Ошибка",MessageBoxButtons.OK,MessageBoxIcon.Error);
+				}
+				}
+				catch(SqlException ex){
+				MessageBox.Show("Изменение не удалось\n" + ex.Message,"Ошибка",MessageBoxButtons.OK,MessageBoxIcon.Error);
+				}
 		}
 	}
 }

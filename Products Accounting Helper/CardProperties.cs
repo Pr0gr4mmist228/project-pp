@@ -10,12 +10,8 @@ using System.Runtime;
 
 namespace auth
 {
-	public class CardProperties
-	{	
-		public CardProperties()
-		{
-			
-		}
+	public static class CardProperties
+	{
 		
 		public static bool IdIsExist(uint itemId)
 		{
@@ -26,9 +22,11 @@ namespace auth
 				if(reader.HasRows){
 						return true;
 				}
+				else
 					return false;
 			}
 		}
+		
 		public static string GetImageLocation(uint itemId){
 			using(SqlConnection connection = new SqlConnection(ProductsForm.connectionString)){
 				connection.Open();
@@ -43,28 +41,29 @@ namespace auth
 					return "";
 			}
 		}
+		
 		public static void SetImageLocation(uint itemId, string imageLocation){
 			using(SqlConnection connection = new SqlConnection(ProductsForm.connectionString)){
 				connection.Open();
 				SqlCommand command = new SqlCommand("INSERT INTO Images(Id,FileLocation) VALUES ('" + itemId + "','"+ imageLocation +"')",connection);
 				int result = command.ExecuteNonQuery();
 				if(result > 0){
-					MessageBox.Show("Добавление успешно");
-				}
-				else
-				MessageBox.Show("Ошибка добавления");
+					MessageBox.Show("Успешное изменение данных","Успех!",MessageBoxButtons.OK,MessageBoxIcon.Information);
+				} else
+					MessageBox.Show("Изменение не удалось", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
+		
 		public static void UpdateImageLocation(uint itemId,string imageLocation){
 			using(SqlConnection connection = new SqlConnection(ProductsForm.connectionString)){
 				connection.Open();
 				SqlCommand command = new SqlCommand("UPDATE Images SET FileLocation = '"+ imageLocation +"' WHERE id="+itemId,connection);
 				int result = command.ExecuteNonQuery();
 				if(result > 0){
-					MessageBox.Show("Изменение успешно");
+					MessageBox.Show("Успешное изменение данных","Успех!",MessageBoxButtons.OK,MessageBoxIcon.Information);
 				}
 				else
-					MessageBox.Show("Ошибка изменения");
+					MessageBox.Show("Изменение не удалось", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 	}
