@@ -1,79 +1,52 @@
 <?xml version="1.0" standalone="yes"?>
 <NewDataSet>
   <Table>
-    <ID>1</ID>
-    <Name>11             </Name>
-    <Quantity>11        </Quantity>
-    <Srok>2001-04-11T00:00:00+04:00</Srok>
-    <Type>aSADd               </Type>
+    <ID>18</ID>
+    <Name>da                  </Name>
+    <Quantity>15</Quantity>
+    <Srok>2020-12-01T00:00:00+03:00</Srok>
+    <Type>Овощи</Type>
   </Table>
   <Table>
-    <ID>2</ID>
-    <Name>121            </Name>
-    <Quantity>12        </Quantity>
-    <Srok>2020-05-03T00:00:00+03:00</Srok>
-    <Type>csdfas              </Type>
+    <ID>19</ID>
+    <Name>da                  </Name>
+    <Quantity>15</Quantity>
+    <Srok>1999-12-01T00:00:00+03:00</Srok>
+    <Type>Овощи</Type>
   </Table>
   <Table>
-    <ID>3</ID>
-    <Name>5              </Name>
-    <Quantity>12        </Quantity>
-    <Srok>2005-05-11T00:00:00+04:00</Srok>
-    <Type>aSADd               </Type>
+    <ID>20</ID>
+    <Name>daada               </Name>
+    <Quantity>12</Quantity>
+    <Srok>2005-03-12T00:00:00+03:00</Srok>
+    <Type>Молочные продукты</Type>
   </Table>
   <Table>
-    <ID>6</ID>
-    <Name>Яблоко         </Name>
-    <Quantity>15        </Quantity>
-    <Srok>2021-05-11T00:00:00+03:00</Srok>
-    <Type>csdfas              </Type>
+    <ID>21</ID>
+    <Name>Tony Shhnow</Name>
+    <Quantity>12</Quantity>
+    <Srok>2021-01-27T00:00:00+03:00</Srok>
+    <Type>Овощи</Type>
   </Table>
   <Table>
-    <ID>7</ID>
-    <Name>Орешки         </Name>
-    <Quantity>20        </Quantity>
-    <Srok>2022-08-23T00:00:00+03:00</Srok>
-    <Type>aSADd               </Type>
+    <ID>22</ID>
+    <Name>da                  </Name>
+    <Quantity>156</Quantity>
+    <Srok>2012-02-27T00:00:00+03:00</Srok>
+    <Type>Молочные продукты</Type>
   </Table>
   <Table>
-    <ID>8</ID>
-    <Name>Апельсин       </Name>
-    <Quantity>21        </Quantity>
-    <Srok>2021-09-25T00:00:00+03:00</Srok>
-    <Type>aSADd               </Type>
+    <ID>23</ID>
+    <Name>ads                 </Name>
+    <Quantity>123</Quantity>
+    <Srok>2002-12-24T00:00:00+03:00</Srok>
+    <Type>Молочные продукты</Type>
   </Table>
   <Table>
-    <ID>9</ID>
-    <Name>rew            </Name>
-    <Quantity>12        </Quantity>
-    <Srok>2000-12-21T00:00:00+03:00</Srok>
-    <Type>Фрукты              </Type>
-  </Table>
-  <Table>
-    <ID>10</ID>
-    <Name>12             </Name>
-    <Quantity>12        </Quantity>
-    <Srok>2001-12-21T00:00:00+03:00</Srok>
-    <Type>aSADd               </Type>
-  </Table>
-  <Table>
-    <ID>11</ID>
-    <Name>Test           </Name>
-    <Quantity>20        </Quantity>
-    <Srok>2020-12-30T00:00:00+03:00</Srok>
-    <Type>Фрукты              </Type>
-  </Table>
-  <Table>
-    <ID>12</ID>
-    <Name>Test           </Name>
-    <Quantity>20        </Quantity>
-    <Srok>2020-08-26T00:00:00+03:00</Srok>
-    <Type>csdfas              </Type>
-  </Table>
-  <Table>
-    <ID>13</ID>
-    <Name>Test</Name>
-    <Quantity>25</Quantity>
-    <Srok>2020-08-24T00:00:00+03:00</Srok>
+    <ID>24</ID>
+    <Name>da                  </Name>
+    <Quantity>12</Quantity>
+    <Srok>2001-12-25T00:00:00+03:00</Srok>
+    <Type>Овощи</Type>
   </Table>
 </NewDataSet>

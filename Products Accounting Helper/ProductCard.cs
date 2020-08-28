@@ -28,7 +28,7 @@ namespace auth
 			ImageTypeChoose.itemId = itemId;
 			
 			this.itemId = itemId;
-			Height = 222;
+			Height = 245;
 			
 			itemPicture.DoubleClick += itemPicture_DoubleClick;
 			itemPicture.MouseHover += itemPicture_MouseHover;
@@ -47,6 +47,7 @@ namespace auth
 			if (ProductsForm.idIsExist) {
 				itemPicture.ImageLocation = CardProperties.GetImageLocation(itemId);
 				isPictureGot = true;
+				itemPicture.BackgroundImage = null;
 			}
 		}
 		
@@ -89,26 +90,29 @@ namespace auth
 		void collapseButtonClick(object sender, EventArgs e)
 		{
 			if(!isCollapsed){
-				Height = 341;	
+				Height = 361;	
 				isCollapsed = true;
 				collapseButton.Text = "Закончить изменение данных";
 			} else if (isCollapsed) {
-				Height = 222;
+				Height = 245;
 				isCollapsed = false;
 				collapseButton.Text = "Изменить данные";
 			}
 		}
 		void ConfirmButtonClick(object sender, EventArgs e)
 		{
+			if(String.IsNullOrWhiteSpace(nameTextBox.Text) || String.IsNullOrWhiteSpace(quantityUpdown.Value.ToString()) || String.IsNullOrWhiteSpace(dateMaskedTextBox.Text) || itemTypeComboBox.Text != ""){
 			try{
 			using(SqlConnection connection = new SqlConnection(connectionString)){
 				connection.Open();
-				SqlCommand command = new SqlCommand("UPDATE test SET Name=@name,Quantity=@quantity,Srok=@srok WHERE id =" + itemId,connection);
+				SqlCommand command = new SqlCommand("UPDATE test SET Name=@name,Quantity=@quantity,Srok=@srok, Type=@type WHERE id =" + itemId,connection);
 				command.Parameters.AddWithValue("@name",nameTextBox.Text);
 				command.Parameters.AddWithValue("@quantity", quantityUpdown.Value);
 				command.Parameters.AddWithValue("@srok", dateMaskedTextBox.Text);
+				command.Parameters.AddWithValue("@type",itemTypeComboBox.Text);
 				if(command.ExecuteNonQuery() > 0){
 					MessageBox.Show("Успешное изменение данных","Успех!",MessageBoxButtons.OK,MessageBoxIcon.Information);
+					LoadFormItems();
 				}
 				else
 					MessageBox.Show("Изменение не удалось","Ошибка",MessageBoxButtons.OK,MessageBoxIcon.Error);
@@ -117,6 +121,24 @@ namespace auth
 				catch(SqlException ex){
 				MessageBox.Show("Изменение не удалось\n" + ex.Message,"Ошибка",MessageBoxButtons.OK,MessageBoxIcon.Error);
 				}
+				} else
+				errorProvider.SetError(confirmButton, "Одно из значений пустое");
+
+		}
+		void LoadFormItems(){
+			typeLabel.Text = itemTypeComboBox.Text;
+			quantityLabel.Text = quantityUpdown.Value.ToString();
+			dateLabel.Text = dateMaskedTextBox.Text;
+			itemNamelabel.Text = nameTextBox.Text;
+		}
+		void GoToHomeButtonClick(object sender, EventArgs e)
+		{
+			new ChooseForm().Show();
+			Close();
+		}
+		void ProductCard_Closing(object sender, FormClosingEventArgs e)
+		{
+			
 		}
 	}
 }

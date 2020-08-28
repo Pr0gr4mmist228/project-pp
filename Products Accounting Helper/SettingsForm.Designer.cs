@@ -12,6 +12,7 @@ namespace auth
 		internal System.Windows.Forms.RadioButton autoSaveOption;
 		internal System.Windows.Forms.RadioButton onlySaveOption;
 		private System.Windows.Forms.ToolTip RadioButtonTip;
+		private System.Windows.Forms.Button goToHomeButton;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -35,11 +36,13 @@ namespace auth
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.manualWithButtonsOption = new System.Windows.Forms.RadioButton();
 			this.autoSaveOption = new System.Windows.Forms.RadioButton();
 			this.onlySaveOption = new System.Windows.Forms.RadioButton();
 			this.RadioButtonTip = new System.Windows.Forms.ToolTip(this.components);
+			this.goToHomeButton = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -48,7 +51,7 @@ namespace auth
 			this.groupBox1.Controls.Add(this.manualWithButtonsOption);
 			this.groupBox1.Controls.Add(this.autoSaveOption);
 			this.groupBox1.Controls.Add(this.onlySaveOption);
-			this.groupBox1.Location = new System.Drawing.Point(8, 12);
+			this.groupBox1.Location = new System.Drawing.Point(8, 56);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(269, 139);
 			this.groupBox1.TabIndex = 0;
@@ -87,16 +90,35 @@ namespace auth
 			this.onlySaveOption.UseVisualStyleBackColor = true;
 			this.onlySaveOption.CheckedChanged += new System.EventHandler(this.onlySaveOptionCheckedChanged);
 			// 
+			// goToHomeButton
+			// 
+			this.goToHomeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
+			this.goToHomeButton.FlatAppearance.BorderSize = 0;
+			this.goToHomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.goToHomeButton.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.goToHomeButton.ForeColor = System.Drawing.Color.White;
+			this.goToHomeButton.Image = ((System.Drawing.Image)(resources.GetObject("goToHomeButton.Image")));
+			this.goToHomeButton.Location = new System.Drawing.Point(8, 8);
+			this.goToHomeButton.Name = "goToHomeButton";
+			this.goToHomeButton.Size = new System.Drawing.Size(34, 35);
+			this.goToHomeButton.TabIndex = 5;
+			this.goToHomeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+			this.goToHomeButton.UseVisualStyleBackColor = false;
+			this.goToHomeButton.Click += new System.EventHandler(this.GoToHomeButtonClick);
+			// 
 			// SettingsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.Gainsboro;
 			this.ClientSize = new System.Drawing.Size(284, 261);
+			this.Controls.Add(this.goToHomeButton);
 			this.Controls.Add(this.groupBox1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "SettingsForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "SettingsForm";
+			this.Text = "Настройки";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsFormClosing);
 			this.Load += new System.EventHandler(this.SettingsFormLoad);
 			this.groupBox1.ResumeLayout(false);
 			this.ResumeLayout(false);

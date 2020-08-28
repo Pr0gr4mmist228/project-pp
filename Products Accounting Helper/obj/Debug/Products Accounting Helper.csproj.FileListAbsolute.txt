@@ -21,3 +21,5 @@ C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\
 C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\Products Accounting Helper.csproj.GenerateResource.Cache
 C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\auth.exe
 C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\auth.pdb
+C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\auth.FindItems.resources
+C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\auth.ChooseForm.resources

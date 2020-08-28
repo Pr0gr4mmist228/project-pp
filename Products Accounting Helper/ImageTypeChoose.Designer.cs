@@ -73,6 +73,7 @@ namespace auth
 			// 
 			// urlBox
 			// 
+			this.urlBox.AllowDrop = true;
 			this.urlBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
 			this.urlBox.ForeColor = System.Drawing.Color.White;
 			this.urlBox.Location = new System.Drawing.Point(99, 129);
@@ -82,6 +83,7 @@ namespace auth
 			this.urlBox.TabIndex = 18;
 			this.urlBox.Text = "Введите url-адрес картинки";
 			this.urlBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.urlBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.UrlBoxDragDrop);
 			// 
 			// acceptButton
 			// 
@@ -108,6 +110,7 @@ namespace auth
 			// 
 			// ImageTypeChoose
 			// 
+			this.AllowDrop = true;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Gainsboro;
@@ -122,6 +125,7 @@ namespace auth
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Выберите хранилище изображения";
 			this.Load += new System.EventHandler(this.ImageTypeChooseLoad);
+			this.DragDrop += new System.Windows.Forms.DragEventHandler(this.UrlBoxDragDrop);
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

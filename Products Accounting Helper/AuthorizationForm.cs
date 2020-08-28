@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace auth
 {
@@ -17,24 +18,22 @@ namespace auth
 		void Button1Click(object sender, EventArgs e)
 		{
 			if (loginBox.Text != "Введите логин" && passwordBox.Text != "Введите пароль") {
-				string connString = "Server=localhost\\MSSQLSERVER01;Database=main;Trusted_Connection=True;";
-				SqlConnection con = new SqlConnection(connString);
-				con.Open();
-				string login = loginBox.Text;
-				string password = passwordBox.Text;
-				SqlCommand comm = new SqlCommand("SELECT login,password FROM auth WHERE [login] = @userLogin COLLATE Latin1_General_100_CS_AI AND [password] = @userPassword COLLATE Latin1_General_100_CS_AI", con);
-				comm.Parameters.Add("@userLogin", SqlDbType.NChar).Value = login;
-				comm.Parameters.Add("@userPassword", SqlDbType.NChar).Value = password;
-				SqlDataReader reader = comm.ExecuteReader();
-				if (reader.HasRows) {
-					MessageBox.Show("Успешный вход", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
-					con.Close();
-					ProductsForm asd = new ProductsForm();
-					asd.Show();
-					this.Hide();
-				} else {
-					MessageBox.Show("Проверьте правильность логина и пароля", "Вход не удался.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-					con.Close();
+				using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString)) {
+					con.Open();
+					string login = loginBox.Text;
+					string password = passwordBox.Text;
+					SqlCommand comm = new SqlCommand("SELECT login,password FROM auth WHERE [login] = @userLogin COLLATE Latin1_General_100_CS_AI AND [password] = @userPassword COLLATE Latin1_General_100_CS_AI",con);
+					comm.Parameters.AddWithValue("@userLogin", login);
+					comm.Parameters.AddWithValue("@userPassword", password);
+					SqlDataReader reader = comm.ExecuteReader();
+					if (reader.HasRows) {
+						MessageBox.Show("Успешный вход", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						new ChooseForm().Show();
+						this.Hide();
+					} else {
+						MessageBox.Show("Проверьте правильность логина и пароля", "Вход не удался", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						errorProvider.SetError(logInButton, "Проверьте правильность пароля и логина");
+					}
 				}
 			} else
 				errorProvider.SetError(logInButton, "Одно из полей пустое");
@@ -75,6 +74,9 @@ namespace auth
 					loginBox.Clear();
 				}
 			}
+		}
+		void AuthFormClosing(object sender, FormClosingEventArgs e)
+		{
 		}	
 	}
 }

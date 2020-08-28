@@ -30,6 +30,10 @@ namespace auth
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Button collapseButton;
+		private System.Windows.Forms.ComboBox itemTypeComboBox;
+		private System.Windows.Forms.Label typeOfItemLabel;
+		private System.Windows.Forms.ErrorProvider errorProvider;
+		private System.Windows.Forms.Button goToHomeButton;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -77,15 +81,20 @@ namespace auth
 			this.label7 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
 			this.collapseButton = new System.Windows.Forms.Button();
+			this.itemTypeComboBox = new System.Windows.Forms.ComboBox();
+			this.typeOfItemLabel = new System.Windows.Forms.Label();
+			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+			this.goToHomeButton = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.itemPicture)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.quantityUpdown)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// idLabel
 			// 
 			this.idLabel.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.idLabel.Location = new System.Drawing.Point(152, 8);
+			this.idLabel.Location = new System.Drawing.Point(152, 40);
 			this.idLabel.Name = "idLabel";
 			this.idLabel.Size = new System.Drawing.Size(143, 22);
 			this.idLabel.TabIndex = 0;
@@ -94,7 +103,7 @@ namespace auth
 			// itemNamelabel
 			// 
 			this.itemNamelabel.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.itemNamelabel.Location = new System.Drawing.Point(152, 32);
+			this.itemNamelabel.Location = new System.Drawing.Point(152, 64);
 			this.itemNamelabel.Name = "itemNamelabel";
 			this.itemNamelabel.Size = new System.Drawing.Size(143, 22);
 			this.itemNamelabel.TabIndex = 0;
@@ -103,7 +112,7 @@ namespace auth
 			// quantityLabel
 			// 
 			this.quantityLabel.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.quantityLabel.Location = new System.Drawing.Point(152, 80);
+			this.quantityLabel.Location = new System.Drawing.Point(152, 112);
 			this.quantityLabel.Name = "quantityLabel";
 			this.quantityLabel.Size = new System.Drawing.Size(143, 22);
 			this.quantityLabel.TabIndex = 0;
@@ -112,7 +121,7 @@ namespace auth
 			// dateLabel
 			// 
 			this.dateLabel.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dateLabel.Location = new System.Drawing.Point(152, 56);
+			this.dateLabel.Location = new System.Drawing.Point(152, 88);
 			this.dateLabel.Name = "dateLabel";
 			this.dateLabel.Size = new System.Drawing.Size(143, 22);
 			this.dateLabel.TabIndex = 0;
@@ -122,7 +131,7 @@ namespace auth
 			// 
 			this.itemPicture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("itemPicture.BackgroundImage")));
 			this.itemPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.itemPicture.Location = new System.Drawing.Point(378, 10);
+			this.itemPicture.Location = new System.Drawing.Point(448, 16);
 			this.itemPicture.Name = "itemPicture";
 			this.itemPicture.Size = new System.Drawing.Size(220, 155);
 			this.itemPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -139,15 +148,15 @@ namespace auth
 			this.dateTimePicker.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
 			this.dateTimePicker.CalendarTrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
 			this.dateTimePicker.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dateTimePicker.Location = new System.Drawing.Point(424, 224);
+			this.dateTimePicker.Location = new System.Drawing.Point(536, 240);
 			this.dateTimePicker.Name = "dateTimePicker";
-			this.dateTimePicker.Size = new System.Drawing.Size(168, 22);
+			this.dateTimePicker.Size = new System.Drawing.Size(144, 22);
 			this.dateTimePicker.TabIndex = 2;
 			// 
 			// typeLabel
 			// 
 			this.typeLabel.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.typeLabel.Location = new System.Drawing.Point(152, 104);
+			this.typeLabel.Location = new System.Drawing.Point(152, 136);
 			this.typeLabel.Name = "typeLabel";
 			this.typeLabel.Size = new System.Drawing.Size(143, 22);
 			this.typeLabel.TabIndex = 0;
@@ -158,7 +167,7 @@ namespace auth
 			this.saveDateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
 			this.saveDateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.saveDateButton.ForeColor = System.Drawing.Color.White;
-			this.saveDateButton.Location = new System.Drawing.Point(472, 256);
+			this.saveDateButton.Location = new System.Drawing.Point(560, 272);
 			this.saveDateButton.Name = "saveDateButton";
 			this.saveDateButton.Size = new System.Drawing.Size(118, 30);
 			this.saveDateButton.TabIndex = 3;
@@ -172,7 +181,7 @@ namespace auth
 			this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.pictureBox1.ImageLocation = "";
 			this.pictureBox1.InitialImage = null;
-			this.pictureBox1.Location = new System.Drawing.Point(368, 0);
+			this.pictureBox1.Location = new System.Drawing.Point(438, 6);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(240, 176);
 			this.pictureBox1.TabIndex = 4;
@@ -183,7 +192,7 @@ namespace auth
 			// 
 			this.label3.BackColor = System.Drawing.Color.Gainsboro;
 			this.label3.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(296, 200);
+			this.label3.Location = new System.Drawing.Point(280, 216);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(120, 17);
 			this.label3.TabIndex = 12;
@@ -194,7 +203,7 @@ namespace auth
 			// 
 			this.label2.BackColor = System.Drawing.Color.Gainsboro;
 			this.label2.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(168, 200);
+			this.label2.Location = new System.Drawing.Point(152, 216);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(120, 17);
 			this.label2.TabIndex = 13;
@@ -205,9 +214,9 @@ namespace auth
 			// 
 			this.label1.BackColor = System.Drawing.Color.Gainsboro;
 			this.label1.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(8, 200);
+			this.label1.Location = new System.Drawing.Point(8, 216);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(150, 17);
+			this.label1.Size = new System.Drawing.Size(136, 17);
 			this.label1.TabIndex = 14;
 			this.label1.Text = "Наименование товара";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -216,16 +225,16 @@ namespace auth
 			// 
 			this.nameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
 			this.nameTextBox.ForeColor = System.Drawing.Color.White;
-			this.nameTextBox.Location = new System.Drawing.Point(8, 224);
+			this.nameTextBox.Location = new System.Drawing.Point(8, 240);
 			this.nameTextBox.Name = "nameTextBox";
-			this.nameTextBox.Size = new System.Drawing.Size(150, 20);
+			this.nameTextBox.Size = new System.Drawing.Size(136, 20);
 			this.nameTextBox.TabIndex = 9;
 			// 
 			// quantityUpdown
 			// 
 			this.quantityUpdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
 			this.quantityUpdown.ForeColor = System.Drawing.Color.White;
-			this.quantityUpdown.Location = new System.Drawing.Point(168, 224);
+			this.quantityUpdown.Location = new System.Drawing.Point(152, 240);
 			this.quantityUpdown.Name = "quantityUpdown";
 			this.quantityUpdown.Size = new System.Drawing.Size(120, 20);
 			this.quantityUpdown.TabIndex = 10;
@@ -234,7 +243,7 @@ namespace auth
 			// 
 			this.dateMaskedTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
 			this.dateMaskedTextBox.ForeColor = System.Drawing.Color.White;
-			this.dateMaskedTextBox.Location = new System.Drawing.Point(296, 224);
+			this.dateMaskedTextBox.Location = new System.Drawing.Point(280, 240);
 			this.dateMaskedTextBox.Mask = "00/00/0000";
 			this.dateMaskedTextBox.Name = "dateMaskedTextBox";
 			this.dateMaskedTextBox.Size = new System.Drawing.Size(120, 20);
@@ -248,7 +257,7 @@ namespace auth
 			this.confirmButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.confirmButton.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.confirmButton.ForeColor = System.Drawing.Color.White;
-			this.confirmButton.Location = new System.Drawing.Point(8, 256);
+			this.confirmButton.Location = new System.Drawing.Point(8, 272);
 			this.confirmButton.Name = "confirmButton";
 			this.confirmButton.Size = new System.Drawing.Size(118, 30);
 			this.confirmButton.TabIndex = 0;
@@ -259,7 +268,7 @@ namespace auth
 			// idlab
 			// 
 			this.idlab.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.idlab.Location = new System.Drawing.Point(8, 8);
+			this.idlab.Location = new System.Drawing.Point(8, 40);
 			this.idlab.Name = "idlab";
 			this.idlab.Size = new System.Drawing.Size(143, 22);
 			this.idlab.TabIndex = 0;
@@ -268,7 +277,7 @@ namespace auth
 			// label5
 			// 
 			this.label5.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(8, 32);
+			this.label5.Location = new System.Drawing.Point(8, 64);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(143, 22);
 			this.label5.TabIndex = 0;
@@ -277,7 +286,7 @@ namespace auth
 			// label6
 			// 
 			this.label6.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(8, 80);
+			this.label6.Location = new System.Drawing.Point(8, 112);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(143, 22);
 			this.label6.TabIndex = 0;
@@ -286,7 +295,7 @@ namespace auth
 			// label7
 			// 
 			this.label7.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label7.Location = new System.Drawing.Point(8, 56);
+			this.label7.Location = new System.Drawing.Point(8, 88);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(143, 22);
 			this.label7.TabIndex = 0;
@@ -295,7 +304,7 @@ namespace auth
 			// label8
 			// 
 			this.label8.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label8.Location = new System.Drawing.Point(8, 104);
+			this.label8.Location = new System.Drawing.Point(8, 136);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(143, 22);
 			this.label8.TabIndex = 0;
@@ -304,10 +313,11 @@ namespace auth
 			// collapseButton
 			// 
 			this.collapseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
+			this.collapseButton.FlatAppearance.BorderSize = 0;
 			this.collapseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.collapseButton.Font = new System.Drawing.Font("Segoe UI Emoji", 9F);
 			this.collapseButton.ForeColor = System.Drawing.Color.White;
-			this.collapseButton.Location = new System.Drawing.Point(8, 136);
+			this.collapseButton.Location = new System.Drawing.Point(8, 160);
 			this.collapseButton.Name = "collapseButton";
 			this.collapseButton.Size = new System.Drawing.Size(128, 40);
 			this.collapseButton.TabIndex = 15;
@@ -315,13 +325,62 @@ namespace auth
 			this.collapseButton.UseVisualStyleBackColor = false;
 			this.collapseButton.Click += new System.EventHandler(this.collapseButtonClick);
 			// 
+			// itemTypeComboBox
+			// 
+			this.itemTypeComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
+			this.itemTypeComboBox.ForeColor = System.Drawing.Color.White;
+			this.itemTypeComboBox.FormattingEnabled = true;
+			this.itemTypeComboBox.Items.AddRange(new object[] {
+			"Фрукты",
+			"Овощи",
+			"Молочные продукты",
+			"Слаймсито"});
+			this.itemTypeComboBox.Location = new System.Drawing.Point(416, 240);
+			this.itemTypeComboBox.Name = "itemTypeComboBox";
+			this.itemTypeComboBox.Size = new System.Drawing.Size(112, 21);
+			this.itemTypeComboBox.TabIndex = 16;
+			// 
+			// typeOfItemLabel
+			// 
+			this.typeOfItemLabel.BackColor = System.Drawing.Color.Gainsboro;
+			this.typeOfItemLabel.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.typeOfItemLabel.Location = new System.Drawing.Point(416, 216);
+			this.typeOfItemLabel.Name = "typeOfItemLabel";
+			this.typeOfItemLabel.Size = new System.Drawing.Size(112, 17);
+			this.typeOfItemLabel.TabIndex = 12;
+			this.typeOfItemLabel.Text = "Тип товара";
+			this.typeOfItemLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// errorProvider
+			// 
+			this.errorProvider.ContainerControl = this;
+			// 
+			// goToHomeButton
+			// 
+			this.goToHomeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
+			this.goToHomeButton.FlatAppearance.BorderSize = 0;
+			this.goToHomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.goToHomeButton.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.goToHomeButton.ForeColor = System.Drawing.Color.White;
+			this.goToHomeButton.Image = ((System.Drawing.Image)(resources.GetObject("goToHomeButton.Image")));
+			this.goToHomeButton.Location = new System.Drawing.Point(8, 0);
+			this.goToHomeButton.Name = "goToHomeButton";
+			this.goToHomeButton.Size = new System.Drawing.Size(34, 35);
+			this.goToHomeButton.TabIndex = 17;
+			this.goToHomeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+			this.goToHomeButton.UseVisualStyleBackColor = false;
+			this.goToHomeButton.Click += new System.EventHandler(this.GoToHomeButtonClick);
+			// 
 			// ProductCard
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Gainsboro;
-			this.ClientSize = new System.Drawing.Size(607, 302);
+			this.ClientSize = new System.Drawing.Size(686, 317);
+			this.Controls.Add(this.goToHomeButton);
+			this.Controls.Add(this.itemTypeComboBox);
 			this.Controls.Add(this.collapseButton);
+			this.Controls.Add(this.typeOfItemLabel);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
@@ -347,9 +406,11 @@ namespace auth
 			this.Name = "ProductCard";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Карточка продукта";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProductCard_Closing);
 			((System.ComponentModel.ISupportInitialize)(this.itemPicture)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.quantityUpdown)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

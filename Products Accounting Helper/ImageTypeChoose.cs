@@ -19,8 +19,16 @@ namespace auth
 		{
 			urlBox.GotFocus += textBox1_GotFocus;
 			urlBox.LostFocus += textBox1_LostFocus;
+			AllowDrop = true;
+			DragEnter += ImageTypeChoose_DragEnter;
+			DragDrop += UrlBoxDragDrop;
 		}
-		
+
+		void ImageTypeChoose_DragEnter(object sender, DragEventArgs e)
+		{
+			object ads = e.Data;
+			MessageBox.Show(ads.ToString());
+		}
 		void textBox1_GotFocus(object sender, EventArgs e)
 		{
 			if(urlBox.Focused)
@@ -44,6 +52,7 @@ namespace auth
 			openFileDialog.ShowDialog();
 			if (openFileDialog.FileName != "none") {
 				picture.ImageLocation = openFileDialog.FileName;
+				picture.BackgroundImage = null;
 				ProductCard.SetFileLocation(picture.ImageLocation, itemId);
 				this.Close();
 			}
@@ -52,11 +61,16 @@ namespace auth
 		{
 			if (urlBox.Text != "" && urlBox.Text != "Введите url-адрес картинки") {
 				picture.ImageLocation = urlBox.Text;
+				picture.BackgroundImage = null;
 				ProductCard.SetFileLocation(picture.ImageLocation,itemId);
 				this.Close();
 			}
 			else
 				errorProvider.SetError(acceptButton,"Вы ничего не ввели в поле адреса!");
+		}
+		void UrlBoxDragDrop(object sender, DragEventArgs e)
+		{
+			
 		}
 	}
 }

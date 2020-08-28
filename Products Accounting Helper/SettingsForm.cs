@@ -12,6 +12,10 @@ namespace auth
 		public Button changeDataButton;
 		public Button refreshButton;
 		
+		ChooseForm choose;
+		
+		public static bool isOptionChanged;
+		
 		public SettingsForm()
 		{
 			InitializeComponent();
@@ -20,6 +24,14 @@ namespace auth
 			manualWithButtonsOption.MouseHover += manualWithButtonsOption_MouseHover;
 			autoSaveOption.MouseHover += autoSaveOption_MouseHover;
 		}
+		
+		public SettingsForm(ChooseForm choose)
+		{
+			InitializeComponent();
+			
+			this.choose = choose;
+		}
+		
 		
 		void onlySaveOption_MouseHover(object sender, EventArgs e)
 		{
@@ -39,28 +51,45 @@ namespace auth
 		public void onlySaveOptionCheckedChanged(object sender, EventArgs e)
 		{
 			if(onlySaveOption.Checked){
+							isOptionChanged = true;
 			ProductsForm.optionId = 1;
-			addDataButton.Text = "Сохранить изменения";
-			changeDataButton.Text = "Добавить данные";
-			refreshButton.Text = "Отменить изменения";
+				new ProductsForm().ReLoadSettings();
 		}
 		}
 
 		public void AutoSaveOptionCheckedChanged(object sender, EventArgs e)
 		{
 			ProductsForm.optionId = 2;
+						isOptionChanged = true;
+			new ProductsForm().ReLoadSettings();
 		}
 		public void ManualWithButtonsOptionCheckedChanged(object sender, EventArgs e)
 		{
 			if(manualWithButtonsOption.Checked){
-			ProductsForm.optionId = 3;
-			addDataButton.Text = "Добавить данные";
-			refreshButton.Text = "Обновить данные";
+						isOptionChanged = true;
+				ProductsForm.optionId = 3;
+				new ProductsForm().ReLoadSettings();
 			}
 		}
 		void SettingsFormLoad(object sender, EventArgs e)
 		{
 	
+		}
+		void GoToHomeButtonClick(object sender, EventArgs e)
+		{
+			Visible = false;
+			choose.Visible = true;
+		}
+		void SettingsFormClosing(object sender, FormClosingEventArgs e)
+		{
+			var result = MessageBox.Show("Вы действительно хотите закрыть окно?", "Подтверждение действия", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+			if (result == DialogResult.No) {
+				e.Cancel = true;
+			} else if (result == DialogResult.Yes) {
+				Application.Exit();
+			} else if (result == DialogResult.Cancel) {
+				e.Cancel = true;
+			}
 		}
 	}
 }
