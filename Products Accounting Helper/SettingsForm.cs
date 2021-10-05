@@ -12,26 +12,24 @@ namespace auth
 		public Button changeDataButton;
 		public Button refreshButton;
 		
+		bool isDialog;
+		
 		ChooseForm choose;
 		
 		public static bool isOptionChanged;
 		
-		public SettingsForm()
+		public SettingsForm(ChooseForm choose = null,bool isDialog = false)
 		{
 			InitializeComponent();
 			
 			onlySaveOption.MouseHover += onlySaveOption_MouseHover;
 			manualWithButtonsOption.MouseHover += manualWithButtonsOption_MouseHover;
 			autoSaveOption.MouseHover += autoSaveOption_MouseHover;
-		}
-		
-		public SettingsForm(ChooseForm choose)
-		{
-			InitializeComponent();
+			
+			this.isDialog = isDialog;
 			
 			this.choose = choose;
 		}
-		
 		
 		void onlySaveOption_MouseHover(object sender, EventArgs e)
 		{
@@ -82,13 +80,15 @@ namespace auth
 		}
 		void SettingsFormClosing(object sender, FormClosingEventArgs e)
 		{
-			var result = MessageBox.Show("Вы действительно хотите закрыть окно?", "Подтверждение действия", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-			if (result == DialogResult.No) {
-				e.Cancel = true;
-			} else if (result == DialogResult.Yes) {
-				Application.Exit();
-			} else if (result == DialogResult.Cancel) {
-				e.Cancel = true;
+			if (!isDialog) {
+				var result = MessageBox.Show("Вы действительно хотите закрыть окно?", "Подтверждение действия", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+				if (result == DialogResult.No) {
+					e.Cancel = true;
+				} else if (result == DialogResult.Yes) {
+					Application.Exit();
+				} else if (result == DialogResult.Cancel) {
+					e.Cancel = true;
+				}
 			}
 		}
 	}

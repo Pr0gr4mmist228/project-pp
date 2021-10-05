@@ -1,52 +1,17 @@
 <?xml version="1.0" standalone="yes"?>
 <NewDataSet>
   <Table>
-    <ID>18</ID>
-    <Name>da                  </Name>
-    <Quantity>15</Quantity>
-    <Srok>2020-12-01T00:00:00+03:00</Srok>
-    <Type>Овощи</Type>
+    <Id>1</Id>
+    <Name>Продукты</Name>
+    <Quantity>1</Quantity>
+    <Srok>11.04.2001</Srok>
+    <Type>Сыр</Type>
   </Table>
   <Table>
-    <ID>19</ID>
-    <Name>da                  </Name>
-    <Quantity>15</Quantity>
-    <Srok>1999-12-01T00:00:00+03:00</Srok>
-    <Type>Овощи</Type>
-  </Table>
-  <Table>
-    <ID>20</ID>
-    <Name>daada               </Name>
-    <Quantity>12</Quantity>
-    <Srok>2005-03-12T00:00:00+03:00</Srok>
-    <Type>Молочные продукты</Type>
-  </Table>
-  <Table>
-    <ID>21</ID>
-    <Name>Tony Shhnow</Name>
-    <Quantity>12</Quantity>
-    <Srok>2021-01-27T00:00:00+03:00</Srok>
-    <Type>Овощи</Type>
-  </Table>
-  <Table>
-    <ID>22</ID>
-    <Name>da                  </Name>
-    <Quantity>156</Quantity>
-    <Srok>2012-02-27T00:00:00+03:00</Srok>
-    <Type>Молочные продукты</Type>
-  </Table>
-  <Table>
-    <ID>23</ID>
-    <Name>ads                 </Name>
-    <Quantity>123</Quantity>
-    <Srok>2002-12-24T00:00:00+03:00</Srok>
-    <Type>Молочные продукты</Type>
-  </Table>
-  <Table>
-    <ID>24</ID>
-    <Name>da                  </Name>
-    <Quantity>12</Quantity>
-    <Srok>2001-12-25T00:00:00+03:00</Srok>
+    <Id>2</Id>
+    <Name>Сыр                 </Name>
+    <Quantity>1</Quantity>
+    <Srok>05.10.2021</Srok>
     <Type>Овощи</Type>
   </Table>
 </NewDataSet>

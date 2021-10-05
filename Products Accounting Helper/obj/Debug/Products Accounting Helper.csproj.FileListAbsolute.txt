@@ -23,3 +23,19 @@ C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\
 C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\auth.pdb
 C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\auth.FindItems.resources
 C:\Users\artem\Documents\GitHub\project-pp\Products Accounting Helper\obj\Debug\auth.ChooseForm.resources
+E:\project-pp\Products Accounting Helper\obj\Debug\auth.ChooseForm.resources
+E:\project-pp\Products Accounting Helper\obj\Debug\auth.FindItems.resources
+E:\project-pp\Products Accounting Helper\obj\Debug\auth.ImageTypeChoose.resources
+E:\project-pp\Products Accounting Helper\obj\Debug\auth.ProductCard.resources
+E:\project-pp\Products Accounting Helper\obj\Debug\auth.ProductsForm.resources
+E:\project-pp\Products Accounting Helper\obj\Debug\auth.AuthorizationForm.resources
+E:\project-pp\Products Accounting Helper\obj\Debug\auth.SettingsForm.resources
+E:\project-pp\Products Accounting Helper\obj\Debug\Products Accounting Helper.csproj.GenerateResource.cache
+E:\project-pp\Products Accounting Helper\obj\Debug\Products Accounting Helper.csproj.CoreCompileInputs.cache
+E:\project-pp\Products Accounting Helper\bin\Debug\ProductsAccHelper.exe.config
+E:\project-pp\Products Accounting Helper\bin\Debug\ProductsAccHelper.exe
+E:\project-pp\Products Accounting Helper\bin\Debug\ProductsAccHelper.pdb
+E:\project-pp\Products Accounting Helper\obj\Debug\ProductsAccHelper.exe
+E:\project-pp\Products Accounting Helper\obj\Debug\ProductsAccHelper.pdb
+E:\project-pp\Products Accounting Helper\obj\Debug\ProductsAccHelper.Properties.Resources.resources
+E:\project-pp\Products Accounting Helper\obj\Debug\Products Accounting Helper.csproj.AssemblyReference.cache

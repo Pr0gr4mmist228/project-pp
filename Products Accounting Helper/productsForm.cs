@@ -11,7 +11,7 @@ namespace auth
 {
 	public partial class ProductsForm : Form
 	{	
-		SettingsForm settings = new SettingsForm();
+		SettingsForm settings = new SettingsForm(null,true);
 		DataSet ds;
 		SqlDataAdapter adapter;
 		SqlCommandBuilder commandBuilder;
@@ -43,8 +43,6 @@ namespace auth
 			settings.deleteDataButton = this.deleteDataButton;
 			settings.changeDataButton = this.changeDataButton;
 			settings.refreshButton = this.refreshButton;
-			
-			FormClosing += ProductsForm_FormClosing;
 			
 			dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
 
@@ -119,21 +117,27 @@ namespace auth
 //			uint itemQuantity = Convert.ToUInt32(dataGridView1[3,dataGridView1.CurrentCell.RowIndex].Value);   МЕТОД БЕЗ SQL
 //			string itemDate = dataGridView1[4,dataGridView1.CurrentCell.RowIndex].Value.ToString().Substring(0,10);
 			if (dataGridView1.CurrentCell is DataGridViewComboBoxCell) {
-				
+				return;
 			} else {
 				using (SqlConnection conn = new SqlConnection(connectionString)) {
 					conn.Open();
-					SqlCommand cmd = new SqlCommand("SELECT Id,Name,Quantity,Srok,Type FROM test WHERE Id = " + dataGridView1[1, dataGridView1.CurrentCell.RowIndex].Value + "", conn);
-					SqlDataReader reader = cmd.ExecuteReader();
-					while (reader.Read()) {
-						ItemProperties.itemId = Convert.ToUInt32(reader.GetValue(0));
-						ItemProperties.itemName = reader.GetValue(1).ToString();
-						ItemProperties.itemQuantity = Convert.ToUInt32(reader.GetValue(2));
-						ItemProperties.itemDate = reader.GetValue(3).ToString();
-						ItemProperties.itemType = reader.GetString(4);
+					try {
+						SqlCommand cmd = new SqlCommand("SELECT Id,Name,Quantity,Srok,Type FROM test WHERE Id = " + dataGridView1[1, dataGridView1.CurrentCell.RowIndex].Value + "", conn);
+						SqlDataReader reader = cmd.ExecuteReader();
+						while (reader.Read()) {
+							ItemProperties.itemId = Convert.ToUInt32(reader.GetValue(0));
+							ItemProperties.itemName = reader.GetValue(1).ToString();
+							ItemProperties.itemQuantity = Convert.ToUInt32(reader.GetValue(2));
+							ItemProperties.itemDate = reader.GetValue(3).ToString();
+							ItemProperties.itemType = reader.GetString(4);
+						}
+						reader.Close();
 					}
-					reader.Close();
-				}
+                    catch (Exception)
+                    {
+						return;
+                    }
+					}
 				idIsExist = CardProperties.IdIsExist(ItemProperties.itemId);
 				ProductCard card = new ProductCard(ItemProperties.itemId, ItemProperties.itemName, ItemProperties.itemQuantity, ItemProperties.itemDate, ItemProperties.itemType);
 				card.ShowDialog();
@@ -197,82 +201,8 @@ namespace auth
 				Height = 290;
 				status = false;
 			}
-		}
-//		void Button5Click(object sender, EventArgs e)
-//		{
-//			try {
-//				string connString = "Server=localhost\\MSSQLSERVER01;Database=main;Trusted_Connection=True;";
-//				SqlConnection con = new SqlConnection(connString);
-//				int selectedIndex = dataGridView1.SelectedRows[0].Index;
-//				int rowID = int.Parse(dataGridView1[0, selectedIndex].Value.ToString());
-//				con.Open();
-//				SqlCommand cmd = con.CreateCommand();
-//				cmd.CommandType = CommandType.Text;
-//				cmd.CommandText = "UPDATE [test] SET [Наименование товара]= '" + textBox1.Text + "', [Наличие]= '" + numericUpDown1.Text + "', [Срок списания]= '" + maskedTextBox1.Text + "' where [id]='" + rowID + "'";
-//				cmd.ExecuteNonQuery();
-//				con.Close();
-//				MessageBox.Show("Данные успешно изменены", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
-//				dataGridView1.DataSource = GetEmployeesList();
-//				textBox1.Clear();
-//				maskedTextBox1.Clear();
-//				numericUpDown1.Text = "0";
-//			} catch (Exception ex) {
-//				MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-//			}
-//		}
-		public void Checksrokgod()
-		{
-			try {
-				string srok = maskedTextBox1.Text;
-				int k = srok.IndexOf('.');
-				string srokden = srok.Substring(0, k);
-				string srokmesyac = (srok.Substring(3, k));
-				string srokgod = (srok.Substring(6, 4));
-				int srokden1 = Convert.ToInt32(srokden);
-				int srokmesyac1 = Convert.ToInt32(srokmesyac);
-				DateTime date = new DateTime();
-				date = DateTime.Now;
-				int mesyac = date.Month;
-				int god = date.Year;
-				int den = date.Day;
-				int denkon1 = srokden1 - den;
-				int meskon1 = srokmesyac1 - mesyac;
-				string denkon = denkon1 + " дней";
-				if (denkon1 <= 0) {
-					denkon1 = 30 - den + srokden1;
-					meskon1 = (mesyac - srokmesyac1 + 1) * (-1);
-					denkon = denkon1.ToString();
-				}
-				int godkon = Convert.ToInt32(srokgod);
-				godkon = godkon - god;
-				string godkon1 = godkon + " год";
-				if (godkon > 0) {
-					denkon1 = 30 - den + srokden1;
-					godkon *= (-1);
-				} else {
-					godkon1 = "";
-				}
-				string denstring = denkon1 == 1 ? (denkon1 == 2 || denkon1 == 3 || denkon1 == 4) ? denkon1 > 4 ? " день" : " дня" : " дней" : " дней";
-				denkon = denkon1.ToString() + denstring;
-				string mestring = meskon1 == 1 ? (meskon1 == 2 || meskon1 == 3 || meskon1 == 4) ? meskon1 > 4 ? " месяц" : " месяца" : " месяцев" : " месяцев";
-				string meskon = meskon1 + mestring;
-				if (meskon1 <= 0) {
-					meskon = "";
-				}
-				if (denkon1 <= 0) {
-					denkon = "";
-				}
-				if (denkon1 != 0 || meskon1 != 0 || godkon != 0) {
-					MessageBox.Show("До конца срока годности: " + denkon + " " + meskon + " " + godkon1 + "", "Срок годности", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				}
-			} catch (Exception ex) {
-				MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-		}
-		public void ProductsForm_FormClosing(object sender, FormClosingEventArgs e)
-		{
-			
-		}
+		}	
+		
 		void CheckbuttonClick(object sender, EventArgs e)
 		{
 			CheckDate();
@@ -319,6 +249,7 @@ namespace auth
 			DataRow row = ds.Tables[0].NewRow();
 			ds.Tables[0].Rows.Add(row);
 		}
+
 		void DeleteDataButtonClick(object sender, EventArgs e)
 		{
 			foreach (DataGridViewRow row in dataGridView1.SelectedRows) {
@@ -384,6 +315,50 @@ namespace auth
 				e.Cancel = true;
 			}
 		}
-		
-	}
+		void Button2Click(object sender, EventArgs e)
+		{
+			DateTime CurrentData = DateTime.Now;
+			int currentMonth = CurrentData.Month;
+			int currentYear = CurrentData.Year;
+			int currentDay = CurrentData.Day;
+			string[] datagridDate = new string[2];
+			int currentRow = dataGridView1.CurrentRow.Index;
+			datagridDate = dataGridView1[4, currentRow].Value.ToString().Split('.');
+			datagridDate[2] = datagridDate[2].Substring(0, 4);
+				
+			int day = int.Parse(datagridDate[0]) - currentDay;
+			int mouth = int.Parse(datagridDate[1]) - currentMonth;
+			int year = int.Parse(datagridDate[2]) - currentYear;
+				
+				if(year > 0){
+				if (day < 0 && mouth < 0)
+				{
+					MessageBox.Show("До конца срока годности " + day * -1 + " дней " + mouth*-1 + " месяцев " + year + " лет");
+				}
+				else if (mouth < 0)
+				{
+					MessageBox.Show("До конца срока годности " + day + " дней " + mouth*-1 + " месяцев " + year + " лет");
+				}
+				else if(day < 0)
+                {
+					MessageBox.Show("До конца срока годности " + day*-1 + " дней " + mouth + " месяцев " + year + " лет");
+				}
+				}
+				else if (day >= 0 && mouth >= 0)
+				{
+					
+				}
+				else MessageBox.Show("Продукт просрочен");
+		}
+
+        void резервнаяКопияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			var DialogResult = MessageBox.Show("Хотите ли вы восстановить резервную копию?","Подтвердите действие",MessageBoxButtons.YesNo);
+			if(DialogResult == DialogResult.Yes)
+            {
+				ds.ReadXml("userdb.xml");
+				MessageBox.Show("Успешно");
+            }
+        }
+    }
 }
