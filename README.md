@@ -12,3 +12,6 @@ The **product accounting helper** make your product management **easier**!
 
 ## Requirements
 You should have .NET framework 4.5+ and Microsoft local db support ( you can download it in official site, it's free and not heavy )
+
+## Setup and start
+You can download the zip archive and start .exe file from bin directory. The login is **admin** and password is **1234567**. You can change it.
